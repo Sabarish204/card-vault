@@ -1,6 +1,6 @@
 {
-  "name": "TestCodexAngular",
-  "short_name": "TestCodexAngular",
+  "name": "CardVault",
+  "short_name": "CardVault",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

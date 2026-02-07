@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "TestCodexAngular": {
+    "CardVault": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TestCodexAngular:build:production"
+              "buildTarget": "CardVault:build:production"
             },
             "development": {
-              "buildTarget": "TestCodexAngular:build:development"
+              "buildTarget": "CardVault:build:development"
             }
           },
           "defaultConfiguration": "development"

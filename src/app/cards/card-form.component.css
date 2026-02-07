@@ -1,0 +1,40 @@
+.form-grid {
+  row-gap: 1rem;
+}
+
+.form-grid > [class*='col-'] {
+  min-width: 0;
+}
+
+:host ::ng-deep .form-grid .p-inputtext,
+:host ::ng-deep .form-grid .p-inputmask,
+:host ::ng-deep .form-grid .p-select {
+  width: 100%;
+}
+
+:host ::ng-deep .form-grid .p-inputmask input {
+  width: 100%;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.field-error {
+  display: block;
+  margin-top: 0.35rem;
+  color: #b42318;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}

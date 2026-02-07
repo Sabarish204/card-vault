@@ -1,0 +1,38 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-row">
+        <img class="brand-logo" src="brand/cardvault-logo.svg" alt="CardVault" />
+      </div>
+      <div class="app-title">CardVault</div>
+      <div class="app-subtitle">Credit & Debit card manager</div>
+    </div>
+    <div class="header-right">
+      <p-tag
+        [value]="vault.unlocked() ? 'Unlocked' : 'Locked'"
+        [severity]="vault.unlocked() ? 'success' : 'danger'"
+        class="pill"
+      ></p-tag>
+      @if (vault.unlocked()) {
+        <p-button
+          label="Reset"
+          icon="pi pi-trash"
+          severity="danger"
+          (onClick)="resetVault()"
+        ></p-button>
+        <p-button
+          label="Lock"
+          icon="pi pi-lock"
+          severity="secondary"
+          (onClick)="vault.lock()"
+        ></p-button>
+      }
+    </div>
+  </header>
+
+  <main class="app-content">
+    <router-outlet />
+  </main>
+
+  <p-confirmDialog styleClass="vault-confirm"></p-confirmDialog>
+</div>

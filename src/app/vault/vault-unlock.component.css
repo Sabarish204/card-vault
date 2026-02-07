@@ -1,0 +1,34 @@
+.unlock-shell {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unlock-card {
+  width: min(420px, 92vw);
+}
+
+.unlock-header {
+  margin-bottom: 1.5rem;
+}
+
+.unlock-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.unlock-subtitle {
+  color: #475569;
+}
+
+.unlock-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.unlock-note {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}

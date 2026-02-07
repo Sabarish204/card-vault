@@ -1,0 +1,79 @@
+<div class="page-header">
+  <div>
+    <div class="page-title">Your Cards</div>
+    <!-- <div class="page-hint">
+      
+      @if (storageEstimate.approxMax > 0) {
+        {{ storageEstimate.approxMax }} cards can be add.
+      } @else {
+        add a card to estimate.
+      }
+    </div> -->
+  </div>
+  <div class="add-card-wrap">
+    <p-button
+      label="Add Card"
+      icon="pi pi-plus"
+      severity="info"
+      routerLink="/cards/add"
+      styleClass="add-card-btn"
+    ></p-button>
+  </div>
+</div>
+
+
+@if (store.cards().length === 0) {
+  <p-card class="surface-card">
+    <p>No cards saved yet. Add one to get started.</p>
+  </p-card>
+} @else {
+  <div class="grid">
+    @for (card of store.cards(); track card.id) {
+      <div class="col-12 md:col-6 lg:col-4">
+        <p-card class="surface-card card-item">
+          <div class="card-header">
+          <div class="card-title">{{ card.bankName }}</div>
+            <p-tag
+              [value]="card.type"
+              [severity]="card.type === 'Credit' ? 'success' : 'info'"
+              class="pill"
+            ></p-tag>
+          </div>
+          <div class="card-issuer">{{ card.issuer }}</div>
+          <div class="card-number">{{ card.cardNumber }}</div>
+          <div class="card-copy">
+            <p-button
+              label="Copy"
+              icon="pi pi-copy"
+              severity="secondary"
+              (onClick)="copyNumber(card)"
+            ></p-button>
+            @if (copiedId === card.id) {
+              <span class="copy-hint">Copied</span>
+            }
+          </div>
+          <div class="card-meta">
+            <span>{{ card.holderName }}</span>
+            <span>Exp {{ card.expiry }}</span>
+          </div>
+          <div class="card-cvv">CVV {{ card.cvv }}</div>
+          <p-divider></p-divider>
+          <div class="card-actions">
+            <p-button
+              label="Delete"
+              icon="pi pi-trash"
+              severity="danger"
+              (onClick)="confirmDelete(card)"
+            ></p-button>
+            <p-button
+              label="Edit"
+              icon="pi pi-pencil"
+              severity="help"
+              [routerLink]="['/cards', card.id, 'edit']"
+            ></p-button>
+          </div>
+        </p-card>
+      </div>
+    }
+  </div>
+}

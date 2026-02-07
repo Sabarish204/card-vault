@@ -1,0 +1,126 @@
+<p-card class="surface-card">
+  <div class="page-header">
+    <div class="page-title">{{ title }}</div>
+    <p-tag value="Secure POC" severity="info" class="pill"></p-tag>
+  </div>
+
+  <p-divider></p-divider>
+
+  <form class="grid form-grid" (ngSubmit)="submit()" [formGroup]="form">
+    <div class="col-12 md:col-6">
+      <label class="field-label" for="type">Card Type</label>
+      <p-select
+        inputId="type"
+        [options]="typeOptions"
+        formControlName="type"
+        placeholder="Select type"
+        class="w-full"
+        #typeSelect
+        (keydown.enter)="onEnter($event, issuerSelect)"
+      ></p-select>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label class="field-label" for="issuer">Issuer</label>
+      <p-select
+        inputId="issuer"
+        [options]="issuerOptions"
+        formControlName="issuer"
+        placeholder="Select issuer"
+        class="w-full"
+        #issuerSelect
+        (keydown.enter)="onEnter($event, bankNameInput)"
+      ></p-select>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label class="field-label" for="bankName">Bank Name</label>
+      <p-select
+        inputId="bankName"
+        [options]="bankOptions"
+        formControlName="bankName"
+        placeholder="Search bank"
+        class="w-full"
+        [filter]="true"
+        #bankNameInput
+        (keydown.enter)="onEnter($event, holderInput)"
+      ></p-select>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label class="field-label" for="holderName">Card Holder</label>
+      <input
+        pInputText
+        id="holderName"
+        type="text"
+        formControlName="holderName"
+        placeholder="Full name"
+        class="w-full"
+        #holderInput
+        (keydown.enter)="onEnter($event, cardNumberMask)"
+      />
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label class="field-label" for="cardNumber">Card Number</label>
+      <p-inputMask
+        inputId="cardNumber"
+        mask="9999 9999 9999 9999"
+        placeholder="1234 5678 9012 3456"
+        formControlName="cardNumber"
+        class="w-full"
+        #cardNumberMask
+        (keydown.enter)="onEnter($event, expiryMask)"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-6 md:col-3">
+      <label class="field-label" for="expiry">Expiry</label>
+      <p-inputMask
+        inputId="expiry"
+        mask="99/99"
+        placeholder="MM/YY"
+        formControlName="expiry"
+        class="w-full"
+        #expiryMask
+        (keydown.enter)="onEnter($event, cvvMaskRef)"
+        (onComplete)="focusMask(cvvMaskRef)"
+      ></p-inputMask>
+      @if (form.get('expiry')?.touched && form.get('expiry')?.errors?.['expiryPast']) {
+        <small class="field-error">Expiry date cannot be in the past.</small>
+      } @else if (form.get('expiry')?.touched && form.get('expiry')?.errors?.['expiryInvalid']) {
+        <small class="field-error">Enter a valid MM/YY.</small>
+      }
+    </div>
+
+    <div class="col-6 md:col-3">
+      <label class="field-label" for="cvv">CVV</label>
+      <p-inputMask
+        inputId="cvv"
+        [mask]="cvvMaskValue"
+        placeholder="CVV"
+        formControlName="cvv"
+        class="w-full"
+        #cvvMaskRef
+        (keydown.enter)="onEnter($event)"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12">
+      <div class="action-row">
+        <p-button
+          label="Back"
+          icon="pi pi-arrow-left"
+          severity="secondary"
+          routerLink="/cards"
+        ></p-button>
+        <p-button
+          type="submit"
+          [label]="submitLabel"
+          icon="pi pi-check"
+          severity="success"
+        ></p-button>
+      </div>
+    </div>
+  </form>
+</p-card>

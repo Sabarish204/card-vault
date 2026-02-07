@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" role="img" aria-label="CardVault Logo">
+  <rect x="4" y="10" width="84" height="44" rx="12" fill="#0b4d4d"/>
+  <rect x="14" y="22" width="64" height="8" rx="4" fill="#0f766e"/>
+  <circle cx="70" cy="44" r="10" fill="#40c9a2"/>
+  <rect x="67" y="40.5" width="6" height="9" rx="2.5" fill="#0b1324"/>
+  <path
+    d="M110 26h10.2c7.8 0 13.2 4.3 13.2 12s-5.4 12-13.2 12H110V26zm10 18.7c4.7 0 7.7-2.5 7.7-6.7 0-4.2-3-6.7-7.7-6.7h-4.7v13.4h4.7z"
+    fill="#0b1324"
+  />
+  <path
+    d="M138.5 26h5.3l4.4 14.3 4.5-14.3h5.2l-7.7 24h-3.9l-7.8-24z"
+    fill="#0b1324"
+  />
+  <path
+    d="M176.7 26h5.4v24h-5.4V26zm-14.6 0h5.4v24h-5.4V26z"
+    fill="#0b1324"
+  />
+</svg>

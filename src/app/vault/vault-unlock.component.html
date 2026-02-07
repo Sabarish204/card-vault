@@ -1,0 +1,48 @@
+<div class="unlock-shell">
+  <p-card class="surface-card unlock-card">
+    <div class="unlock-header">
+      <div class="unlock-title">Unlock CardVault</div>
+      <div class="unlock-subtitle">Encryption for your stored cards.</div>
+    </div>
+
+    <form class="unlock-form" [formGroup]="form" (ngSubmit)="unlock()">
+      <label class="field-label" for="passphrase">Passphrase</label>
+      <input
+        pInputText
+        id="passphrase"
+        type="password"
+        placeholder="Enter a secure phrase"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        formControlName="passphrase"
+        class="w-full"
+      />
+
+      @if (error) {
+        <p-message severity="error" [text]="error"></p-message>
+      }
+
+      <p-button
+        type="submit"
+        label="Unlock Vault"
+        icon="pi pi-lock-open"
+        severity="success"
+        class="w-full"
+      ></p-button>
+      <p-button
+        type="button"
+        label="Reset Vault"
+        icon="pi pi-trash"
+        severity="danger"
+        class="w-full"
+        (onClick)="reset()"
+      ></p-button>
+    </form>
+
+    <!-- <div class="unlock-note">
+      This is a demo-only encryption mock. Do not store real card data.
+    </div> -->
+  </p-card>
+</div>

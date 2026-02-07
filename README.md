@@ -12,6 +12,7 @@ CardVault is a single-page Angular application for storing and managing credit/d
 ## Project Description
 
 CardVault provides a lightweight UI to:
+
 - unlock a local vault using a passphrase,
 - store card entries (issuer, bank, holder, number, expiry, CVV),
 - edit/delete saved cards,
@@ -31,35 +32,31 @@ It is built as a standalone Angular app with PrimeNG components and optional PWA
 - Reset vault confirmation dialogs
 - PWA manifest + service worker (enabled in production build)
 
-## Screenshots
-
-Add your screenshots in `docs/screenshots/` and update links below.
-
-![Unlock Screen](docs/screenshots/unlock-screen.png)
-![Cards List](docs/screenshots/cards-list.png)
-![Add Card Form](docs/screenshots/add-card-form.png)
-
 ## Tech Stack (with Versions)
 
 ### Core Framework
+
 - Angular `^21.1.0` (`@angular/core`, `@angular/common`, `@angular/router`, `@angular/forms`, etc.)
 - Angular CLI `^21.1.2`
 - Angular Build System `@angular/build ^21.1.2`
 - Angular Service Worker `^21.1.0`
 
 ### UI and Styling
+
 - PrimeNG `^21.1.1`
 - PrimeNG Theme Preset (`@primeng/themes`) `^21.0.4` (Aura)
 - PrimeFlex `^4.0.0`
 - PrimeIcons `^7.0.0`
 
 ### Language and Tooling
+
 - TypeScript `~5.9.2`
 - RxJS `~7.8.0`
 - tslib `^2.3.0`
 - npm `11.6.2` (from `packageManager`)
 
 ### Testing/Dev Utilities
+
 - Vitest `^4.0.8`
 - jsdom `^27.1.0`
 
@@ -74,7 +71,7 @@ Add your screenshots in `docs/screenshots/` and update links below.
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Sabarish204/card-vault.git
 cd card-vault
 ```
 
@@ -141,14 +138,18 @@ CardVault is deployed on **Vercel**.
 
 1. Fork the repository
 2. Create a feature branch:
+
 ```bash
 git checkout -b feature/your-feature-name
 ```
+
 3. Make your changes and test locally:
+
 ```bash
 npm test
 npm run build
 ```
+
 4. Commit using clear messages
 5. Push your branch and open a Pull Request
 
@@ -172,7 +173,3 @@ npm run build
 - Add e2e tests for vault + card management flows
 - Add import/export (encrypted backup) support
 - Add CI checks (lint, test, build)
-
-## License
-
-MIT (update this section if your project uses a different license).
